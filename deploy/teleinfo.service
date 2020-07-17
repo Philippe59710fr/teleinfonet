@@ -1,0 +1,16 @@
+[Unit]
+Description=TeleinfoNet
+
+[Service]
+WorkingDirectory=/opt/teleinfonet
+ExecStart=/opt/teleinfonet/run.sh
+Restart=always
+# Restart service after 10 seconds if the dotnet service crashes:
+RestartSec=10
+KillSignal=SIGINT
+SyslogIdentifier=teleinfonet
+User=pi
+Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
+
+[Install]
+WantedBy=multi-user.target
